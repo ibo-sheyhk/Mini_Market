@@ -1,0 +1,46 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Non registration</h4>
+        <form method="POST">
+          {% csrf_token %}
+          <div class="form-group row">
+            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Title</label>
+            <div class="col-sm-9">
+              {% render_field form.title type="text" class="form-control" id="exampleInputUsername2" placeholder="Title" %}
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Create date</label>
+            <div class="col-sm-9">
+              {% render_field form.created_date type="date" class="form-control" id="exampleInputEmail2" placeholder="Create date" %}
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Description</label>
+            <div class="col-sm-9">
+              {% render_field form.description type="text" class="form-control" id="exampleInputConfirmPassword2" placeholder="Description" %}
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Price</label>
+            <div class="col-sm-9">
+              {% render_field form.price type="number" class="form-control" id="exampleInputConfirmPassword2" placeholder="100$" %}
+            </div>
+          </div>
+          <div class="form-check form-check-flat form-check-primary">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input"> Remember me </label>
+          </div>
+          <button type="submit" class="btn btn-primary mr-2"> Product Create</button>
+          <a href="{% url 'n_table' %}" type="submit" class="btn btn-danger mr-2">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

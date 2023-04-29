@@ -1,0 +1,33 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Vetrovka Table</h4>
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th> Title </th>
+            <th> Create date </th>
+            <th> Description </th>
+            <th> Price </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ventrovka in ventrovkas %}
+          <tr>
+            <td> {{ ventrovka.title }} </td>
+            <td> {{ ventrovka.create_date }} </td>
+            <td> {{ ventrovka.description }} </td>
+            <td> {{ ventrovka.price }} </td> 
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

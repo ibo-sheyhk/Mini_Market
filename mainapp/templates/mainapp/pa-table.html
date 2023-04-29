@@ -1,0 +1,33 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Paypoq Table</h4>
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th> Title </th>
+            <th> Create date </th>
+            <th> Description </th>
+            <th> Price </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for paypoq in paypoqs %}
+          <tr>
+            <td> {{ paypoq.title }} </td>
+            <td> {{ paypoq.create_date }} </td>
+            <td> {{ paypoq.description }} </td>
+            <td> {{ paypoq.price }} </td> 
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

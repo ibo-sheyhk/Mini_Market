@@ -1,0 +1,64 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Employee registration</h4>
+        <form method="POST">
+          {% csrf_token %}
+          <div class="form-group row">
+            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Full name</label>
+            <div class="col-sm-9">
+              {% render_field form.full_name type="text" class="form-control" id="exampleInputUsername2" placeholder="Username" %}
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Birth date</label>
+            <div class="col-sm-9">
+              {% render_field form.birth_date type="date" class="form-control" id="exampleInputEmail2" placeholder="date" %}
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputMobile" class="col-sm-3 col-form-label">Spesifikation</label>
+            <div class="col-sm-9">
+              {% render_field form.spesifikation type="text" class="form-control" id="exampleInputMobile" placeholder="Spesifikation" %}
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Country</label>
+            <div class="col-sm-9">
+              {% render_field form.country type="text" class="form-control" id="exampleInputPassword2" placeholder="Country" %}
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">City</label>
+            <div class="col-sm-9">
+              {% render_field form.city type="text" class="form-control" id="exampleInputConfirmPassword2" placeholder="City" %}
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Adress</label>
+            <div class="col-sm-9">
+              {% render_field form.adress type="text" class="form-control" id="exampleInputConfirmPassword2" placeholder="Home Adress" %}
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Salary</label>
+            <div class="col-sm-9">
+              {% render_field form.salary type="number" class="form-control" id="exampleInputConfirmPassword2" placeholder="100$" %}
+            </div>
+          </div>
+          <div class="form-check form-check-flat form-check-primary">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input"> Remember me </label>
+          </div>
+          <button type="submit" class="btn btn-primary mr-2">Create Employee</button>
+          <a href="{% url 'e_table' %}" type="submit" class="btn btn-danger mr-2">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

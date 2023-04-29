@@ -1,0 +1,21 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <form method="Post" action=""{% url 's_delete' suv.id %}>
+                {% csrf_token %}
+                <div class="form-group row">
+                    <h3 for="exampleInputName1">Are you should to delete</h3>
+                    <input type="text" class="form-control" id="exampleInputName1" placeholder="{{ suv }}">
+                </div>
+                <a href="{ url 's_table' }" type="submit" class="btn btn-danger mr-2">No</a>
+                <button type="submit" class="btn btn-primary mr-2">Yes</button>
+            </form>
+        </div> 
+    </div>
+</div>
+{% endblock %}

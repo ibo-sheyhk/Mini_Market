@@ -1,0 +1,33 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Kepka Table</h4>
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th> Title </th>
+            <th> Create date </th>
+            <th> Description </th>
+            <th> Price </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for kepka in kepkas %}
+          <tr>
+            <td> {{ kepka.title }} </td>
+            <td> {{ kepka.create_date }} </td>
+            <td> {{ kepka.description }} </td>
+            <td> {{ kepka.price }} </td> 
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Fruit Table</h4>
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th> Title </th>
+            <th> Create date </th>
+            <th> End date </th>
+            <th> Description </th>
+            <th> Price </th>
+            <th> Action </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fruit in fruits %}
+          <tr>
+            <td> {{ fruit.title }} </td>
+            <td> {{ fruit.created_date }} </td>
+            <td> {{ fruit.end_date }} </td>
+            <td> {{ fruit.description }} </td>
+            <td> {{ fruit.price }} </td> 
+            <td>
+              <a href="{% url 'f_update' fruit.id %}" type="submit" class="btn btn-primary mr-1">Update</a>
+              <a href="{% url 'f_delete' fruit.id %}" type="submit" class="btn btn-danger mr-1">Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
